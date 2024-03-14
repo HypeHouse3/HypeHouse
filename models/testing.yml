@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: stg_video_info
+    columns:
+      - name: index
+        tests:
+          - unique
+          - not_null
+      
+      - name: video_id
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('stg_comment_count')
+              field: video_id
+      - name: channel_id
+        tests:
+          - not_null
+          - unique    
+
+  - name: stg_view_count
+    columns:
+      - name: video_id
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_comment_count')
+              field: video_id
+      - name: index
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_comment_count
+    columns:
+      - name: video_id
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_video_info')
+              field: video_id
+          - relationships:
+              to: ref('stg_likes_count')
+              field: video_id
+          - relationships:
+              to: ref('stg_view_count')
+              field: video_id
+      - name: index
+        tests:
+          - unique
+          - not_null
+
+      

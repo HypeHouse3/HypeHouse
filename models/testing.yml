@@ -11,7 +11,12 @@ models:
               field: video_id
       - name: channel_id
         tests:
-          - not_null    
+          - not_null  
+      - name: File_Date
+        tests:
+          - relationships:
+              field: File_Date
+              to: ref('stg_comment_count')
 
   - name: stg_view_count
     columns:
@@ -21,6 +26,11 @@ models:
           - relationships:
               to: ref('stg_comment_count')
               field: video_id
+      - name: File_Date
+        tests:
+          - relationships:
+              field: File_Date
+              to: ref('stg_comment_count')
 
   - name: stg_comment_count
     columns:
@@ -31,10 +41,14 @@ models:
               to: ref('stg_video_info')
               field: video_id
           - relationships:
-              to: ref('stg_likes_count')
-              field: video_id
-          - relationships:
               to: ref('stg_view_count')
               field: video_id
-
-      
+      - name: File_Date
+        tests:
+          - relationships:
+              field: File_Date
+              to: ref('stg_video_info')
+          - relationships:
+              field: File_Date
+              to: ref('stg_view_count')
+    

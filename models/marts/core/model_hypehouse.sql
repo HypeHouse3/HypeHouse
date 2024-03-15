@@ -33,15 +33,16 @@ final as (
            video_info.channel_title,
            video_info.Tags, 
            video_info.Thumbnail_Link,
-           view_count.view_count
+           view_count.view_count,
+           view_count.File_Date
            
            
     from comment_count
 
               
-        left join video_info on comment_count.Video_ID = video_info.Video_ID AND comment_count.file_date = video_info.file_date
+        left join video_info on comment_count.Video_ID = video_info.Video_ID AND comment_count.File_Date = video_info.File_Date
        
-        left join view_count on comment_count.Video_ID = view_count.Video_ID AND comment_count.file_date = view_count.file_date
+        left join view_count on comment_count.Video_ID = view_count.Video_ID AND comment_count.File_Date = view_count.File_Date
        
 )
 

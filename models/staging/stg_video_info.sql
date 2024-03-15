@@ -48,10 +48,12 @@ with video_info as (
     value:title_for_client_HyPeHoUsE::string AS Title,
     value:trending_date_for_client_HyPeHoUsE::string AS Trending_Date,
     value:video_id_for_client_HyPeHoUsE::string AS Video_ID,
-    file_date
+    File_Date
   from
     {{ source('original', 'video_info') }},
   LATERAL FLATTEN(INPUT => name:data)
 )
 
 select * from video_info
+
+

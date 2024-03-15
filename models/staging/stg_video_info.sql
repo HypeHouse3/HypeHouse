@@ -41,15 +41,14 @@ with video_info as (
     value:channelTitle_for_client_HyPeHoUsE::string AS Channel_Title,
     value:comments_disabled_for_client_HyPeHoUsE::string AS Comments_Disabled,
     value:description_for_client_HyPeHoUsE::string AS Description,
-    value:index::number AS Index,
-    value:publishedAt_for_client_HyPeHoUsE::string AS Publishing_Date,
+    TO_CHAR(TO_TIMESTAMP(value:publishedAt_for_client_HyPeHoUsE::string), 'YYYY-MM-DD HH24:MI:SS.FF3') AS Publishing_Date,
     value:ratings_disabled_for_client_HyPeHoUsE::string AS Ratings_Disabled,
     value:tags_for_client_HyPeHoUsE::string AS Tags,
     value:thumbnail_link_for_client_HyPeHoUsE::string AS Thumbnail_Link,
     value:title_for_client_HyPeHoUsE::string AS Title,
     value:trending_date_for_client_HyPeHoUsE::string AS Trending_Date,
-    value:video_id_for_client_HyPeHoUsE::string AS Video_ID
-  
+    value:video_id_for_client_HyPeHoUsE::string AS Video_ID,
+    file_date
   from
     {{ source('original', 'video_info') }},
   LATERAL FLATTEN(INPUT => name:data)

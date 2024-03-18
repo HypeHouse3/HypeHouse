@@ -19,6 +19,12 @@ view_count as (
 
 ),
 
+likes_count as (
+
+    select * from {{ ref('stg_likes_count') }}
+
+),
+
 final as (
 
     select 
@@ -34,7 +40,8 @@ final as (
            video_info.Tags, 
            video_info.Thumbnail_Link,
            view_count.view_count,
-           view_count.File_Date
+           likes_count.Likes,
+           likes_count.File_Date
            
            
     from comment_count
@@ -43,6 +50,8 @@ final as (
         left join video_info on comment_count.Video_ID = video_info.Video_ID AND comment_count.File_Date = video_info.File_Date
        
         left join view_count on comment_count.Video_ID = view_count.Video_ID AND comment_count.File_Date = view_count.File_Date
+
+        left join likes_count on comment_count.Video_ID = likes_count.Video_Id AND comment_count.File_Date = likes_count.File_Date
        
 )
 

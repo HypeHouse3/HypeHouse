@@ -11,3 +11,7 @@ sources:
         loaded_at_field: File_Date
       - name: video_info
       - name: view_count
+      - name: likes_count
+  - name: gery_dev
+    tables:
+      - name: model_hypehouse

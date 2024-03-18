@@ -51,4 +51,6 @@ models:
           - relationships:
               field: File_Date
               to: ref('stg_view_count')
-    
+  - name: model_hypehouse
+
+        

@@ -47,7 +47,8 @@ with video_info as (
     value:thumbnail_link_for_client_HyPeHoUsE::string AS Thumbnail_Link,
     value:title_for_client_HyPeHoUsE::string AS Title,
     value:trending_date_for_client_HyPeHoUsE::string AS Trending_Date,
-    value:video_id_for_client_HyPeHoUsE::string AS Video_ID,
+    value:video_id_for_client_HyPeHoUsE::string AS Video_ID,  
+    value:country_code::string as Country_Code,
     File_Date
   from
     {{ source('original', 'video_info') }},

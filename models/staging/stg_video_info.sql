@@ -49,6 +49,11 @@ with video_info as (
     value:trending_date_for_client_HyPeHoUsE::string AS Trending_Date,
     value:video_id_for_client_HyPeHoUsE::string AS Video_ID,  
     value:country_code::string as Country_Code,
+    CASE 
+      WHEN value:country_code::string IN ({{ "'" + "', '".join(var('country_classification')['European']) + "'" }}) THEN 'European'
+      WHEN value:country_code::string IN ({{ "'" + "', '".join(var('country_classification')['Non-European']) + "'" }}) THEN 'Non-European'
+    ELSE 'Unknown'
+  END AS region_classification,
     File_Date
   from
     {{ source('original', 'video_info') }},

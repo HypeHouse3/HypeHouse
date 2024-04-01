@@ -29,6 +29,7 @@ final as (
 
     select 
            comment_count.Country_Code,
+           comment_count.region_classification,
            comment_count.Video_ID,
            comment_count.comment_count,
            video_info.Title,

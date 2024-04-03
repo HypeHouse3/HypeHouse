@@ -2,6 +2,7 @@ version: 2
 
 models:
   - name: stg_video_info
+    description: A staging model containing the video - related columns.
     columns:
       - name: video_id
         tests:
@@ -19,6 +20,7 @@ models:
               to: ref('stg_comment_count')
 
   - name: stg_view_count
+    description: A staging model containing the views - related columns.
     columns:
       - name: video_id
         tests:
@@ -33,6 +35,7 @@ models:
               to: ref('stg_comment_count')
 
   - name: stg_comment_count
+    description: A staging model containing the comments - related columns.
     columns:
       - name: video_id
         tests:
@@ -52,5 +55,15 @@ models:
               field: File_Date
               to: ref('stg_view_count')
   - name: model_hypehouse
+    description: This is the main model with all the necessary and useful columns cleaned and transformed.
+  - name: avg_trend_date
+    description: This model computes the average days for a video to become trending but it does not consider that a video can become trending several times after its publication.
+  - name: avg_views_category
+    description: This model computes the average views per category per country.
+  - name: insights_country
+    description: This model provides an insight about the videos per country including several aggregation functions of views, comments, likes, and time to trend. 
+  - name: trending_videos
+    description: This model computes the number of trending videos per country and channel.
+             
 
         

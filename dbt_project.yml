@@ -35,6 +35,21 @@ clean-targets:         # directories to be removed by `dbt clean`
 # continue to be built as views. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 
+vars:
+  country_classification:
+    European:
+      - DE # Germany
+      - GB # United Kingdom
+      - FR # France
+      - RU # Russia, assuming for simplicity you're classifying it as European
+    Non-European:
+      - US # United States
+      - JP # Japan
+      - KR # South Korea
+      - MX # Mexico
+      - IN # India
+      - CA # Canada
+      - BR # Brazil
 models:
   HypeHouse:
     staging:

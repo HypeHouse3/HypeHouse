@@ -34,7 +34,14 @@ clean-targets:         # directories to be removed by `dbt clean`
 # instead be materialized as tables. Any models you add to the root of the models folder will 
 # continue to be built as views. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
+vars:
+  country_classification:
+    European:
+      - DE # Germany
+      - GB # United Kingdom
+      - FR # France
 
+<<<<<<< HEAD
 vars:
   country_classification:
     European:
@@ -43,6 +50,10 @@ vars:
       - FR # France
       - RU # Russia, assuming for simplicity you're classifying it as European
     Non-European:
+=======
+    Non-European:
+      - RU # Russia
+>>>>>>> 50305adcf5d15c7091a238cbf3e667b9a070e5e4
       - US # United States
       - JP # Japan
       - KR # South Korea
@@ -52,9 +63,10 @@ vars:
       - BR # Brazil
 models:
   HypeHouse:
-    staging:
-    # Applies to all files under models/staging/
-      +materialized: view
+  # No need to specify the materialization for the staging models if they'll be a view, this is the default materialization.
+    # staging:
+    # # Applies to all files under models/staging/
+    #   +materialized: view
     marts:
     # Applies to all files under models/marts/
       core:

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 with base as (
 
     select
@@ -57,7 +56,6 @@ select
 from ranked_channels
 where rn = 1
 
-=======
 with base as (
 
     select
@@ -116,4 +114,3 @@ select
 from ranked_channels
 where rn = 1
 
->>>>>>> 50305adcf5d15c7091a238cbf3e667b9a070e5e4

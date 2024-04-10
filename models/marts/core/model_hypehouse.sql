@@ -39,6 +39,7 @@ final as (
            video_info.category_id,
            video_info.Category_Title,
            video_info.channel_title,
+           video_info.Comments_Disabled,
            video_info.Tags, 
            video_info.Thumbnail_Link,
            view_count.view_count,

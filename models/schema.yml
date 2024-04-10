@@ -16,8 +16,9 @@ models:
       - name: File_Date
         tests:
           - relationships:
-              field: File_Date
               to: ref('stg_comment_count')
+              field: File_Date
+              
 
   - name: stg_view_count
     description: A staging model containing the views - related columns.
@@ -31,8 +32,9 @@ models:
       - name: File_Date
         tests:
           - relationships:
-              field: File_Date
               to: ref('stg_comment_count')
+              field: File_Date
+              
 
   - name: stg_comment_count
     description: A staging model containing the comments - related columns.
@@ -49,11 +51,15 @@ models:
       - name: File_Date
         tests:
           - relationships:
-              field: File_Date
               to: ref('stg_video_info')
-          - relationships:
               field: File_Date
+              
+          - relationships:
               to: ref('stg_view_count')
+<<<<<<< HEAD
+              field: File_Date
+              
+=======
   - name: model_hypehouse
     description: This is the main model with all the necessary and useful columns cleaned and transformed.
   - name: avg_trend_date
@@ -65,5 +71,6 @@ models:
   - name: trending_videos
     description: This model computes the number of trending videos per country and channel.
              
+>>>>>>> 50305adcf5d15c7091a238cbf3e667b9a070e5e4
 
         
